@@ -196,50 +196,23 @@ service webmin restart
 
 # info
 clear
-echo "Setup by Satria AJi Putra | ArenaJayaTeknik.com | @Sat_22_99 | 57661D2D" | tee log-install.txt
+echo "Script installer by VPS Workshop" | tee log-install.txt
 echo "===============================================" | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Service"  | tee -a log-install.txt
-echo "-------"  | tee -a log-install.txt
-echo "OpenSSH  : 22, 143"  | tee -a log-install.txt
-echo "Dropbear : 109, 110, 443"  | tee -a log-install.txt
-echo "Squid3   : 8080, 3124 (limit to IP SSH)"  | tee -a log-install.txt
-echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Tools"  | tee -a log-install.txt
-echo "-----"  | tee -a log-install.txt
-echo "axel"  | tee -a log-install.txt
-echo "bmon"  | tee -a log-install.txt
-echo "htop"  | tee -a log-install.txt
-echo "iftop"  | tee -a log-install.txt
-echo "mtr"  | tee -a log-install.txt
-echo "nethogs"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Script"  | tee -a log-install.txt
-echo "------"  | tee -a log-install.txt
-echo "screenfetch"  | tee -a log-install.txt
-echo "user-login"  | tee -a log-install.txt
-echo "user-add"  | tee -a log-install.txt
-echo "user-list"  | tee -a log-install.txt
-echo "renew"  | tee -a log-install.txt
-echo "trial"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Account Default (utk SSH dan VPN)"  | tee -a log-install.txt
-echo "---------------"  | tee -a log-install.txt
-echo "User     : Dimas"  | tee -a log-install.txt
-echo "Password : qweasd"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Fitur lain"  | tee -a log-install.txt
-echo "----------"  | tee -a log-install.txt
-echo "Webmin   : https://$IPSAYA:10000/"  | tee -a log-install.txt
-echo "vnstat   : http://$IPSAYA/vnstat/"  | tee -a log-install.txt
-echo "MRTG     : http://$IPSAYA/mrtg/"  | tee -a log-install.txt
-echo "Timezone : Asia/Jakarta"  | tee -a log-install.txt
-echo "Fail2Ban : [on]"  | tee -a log-install.txt
-echo "IPv6     : [off]"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Log Installasi --> /root/log-install.txt"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "SILAHKAN REBOOT VPS ANDA !"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "==============================================="  | tee -a log-install.txt
+echo "" | tee -a log-install.txt
+echo "Service" | tee -a log-install.txt
+echo "-------" | tee -a log-install.txt
+echo "OpenSSH  : 22, 143" | tee -a log-install.txt
+echo "Dropbear : 109, 110, 443" | tee -a log-install.txt
+echo "Squid    : 8080, 3128" | tee -a log-install.txt
+echo "OpenVPN  : https://$MYIP:81/VPN.zip/" | tee -a log-install.txt
+echo "badvpn   : badvpn-udpgw port 7300" | tee -a log-install.txt
+echo "Webmin   : https://$MYIP:10000/" | tee -a log-install.txt
+echo "Menu script : ketik kata menu di putty" | tee -a log-install.txt
+echo "Timezone : Asia/Jakarta" | tee -a log-install.txt
+echo "Fail2Ban : [on]" | tee -a log-install.txt
+echo "IPv6     : [off]" | tee -a log-install.txt
+echo "documentation : http://satria.asia/docs/documentation.html" | tee -a log-install.txt
+echo "" | tee -a log-install.txt
+echo "REBOOT VPS!" | tee -a log-install.txt
+echo "" | tee -a log-install.txt
+echo "===============================================" | tee -a log-install.txt
