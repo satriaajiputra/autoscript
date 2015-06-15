@@ -143,10 +143,11 @@ sed -i "s|my-server-3|$IPSAYA|" /etc/squid3/squid.conf
 
 # install webmin
 cd
-wget "http://prdownloads.sourceforge.net/webadmin/webmin_1.670_all.deb"
-dpkg --install webmin_1.670_all.deb;
+wget "http://prdownloads.sourceforge.net/webadmin/webmin_1.680_all.deb"
+dpkg --install webmin_1.680_all.deb;
 apt-get -y -f install;
-rm /root/webmin_1.670_all.deb
+sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
+rm /root/webmin_1.680_all.deb
 service webmin restart
 service vnstat restart
 
