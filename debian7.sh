@@ -163,7 +163,8 @@ cd
 cd
 curl http://satria.asia/repo/user-add > /usr/bin/user-add
 curl http://satria.asia/repo/user-list > /usr/bin/user-list
-wget -O dropmon "https://raw.github.com/yurisshOS/debian7os/master/dropmon.sh"
+curl http://satria.asia/repo/monitorport > /usr/bin/monitorport
+curl http://satria.asia/repo/dropmon > /usr/bin/dropmon
 curl http://satria.asia/repo/user-login > /usr/bin/user-login
 curl http://satria.asia/repo/renew > /usr/bin/renew
 curl http://satria.asia/repo/trial > /usr/bin/trial
@@ -176,6 +177,8 @@ chmod +x user-list
 chmod +x user-login
 chmod +x renew
 chmod +x trial
+chmod +x monitorport
+chmod +x dropmon
 chmod +x minggat
 chmod +x gusur
 chmod +x menu
@@ -225,6 +228,7 @@ echo "htop"  | tee -a log-install.txt
 echo "iftop"  | tee -a log-install.txt
 echo "mtr"  | tee -a log-install.txt
 echo "nethogs"  | tee -a log-install.txt
+echo "dropmon ( dropbear monitoring )"  | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "Script"  | tee -a log-install.txt
 echo "------"  | tee -a log-install.txt
