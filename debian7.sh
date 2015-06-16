@@ -163,6 +163,7 @@ cd
 cd
 curl http://satria.asia/repo/user-add > /usr/bin/user-add
 curl http://satria.asia/repo/user-list > /usr/bin/user-list
+wget -O dropmon "https://raw.github.com/yurisshOS/debian7os/master/dropmon.sh"
 curl http://satria.asia/repo/user-login > /usr/bin/user-login
 curl http://satria.asia/repo/renew > /usr/bin/renew
 curl http://satria.asia/repo/trial > /usr/bin/trial
@@ -179,6 +180,7 @@ chmod +x minggat
 chmod +x gusur
 chmod +x menu
 cd
+chmod +x dropmon
 echo "0 0 * * * root /usr/bin/gusur" >> /etc/crontab
 service cron restart
 
@@ -193,6 +195,8 @@ service dropbear restart
 service fail2ban restart
 service squid3 restart
 service webmin restart
+rm -rf ~/.bash_history && history -c
+echo "unset HISTFILE" >> /etc/profile
 
 # info
 clear
@@ -204,15 +208,36 @@ echo "-------" | tee -a log-install.txt
 echo "OpenSSH  : 22, 143" | tee -a log-install.txt
 echo "Dropbear : 109, 110, 443" | tee -a log-install.txt
 echo "Squid    : 8080, 3128" | tee -a log-install.txt
-echo "OpenVPN  : https://$IPSAYA:80/ovpn-client.tar.gz/" | tee -a log-install.txt
+echo "OpenVPN  : http://$IPSAYA:80/client.tar.gz" | tee -a log-install.txt
 echo "badvpn   : badvpn-udpgw port 7300" | tee -a log-install.txt
-echo "Webmin   : https://$IPSAYA:10000/" | tee -a log-install.txt
+echo "Webmin   : http://$IPSAYA:10000/" | tee -a log-install.txt
 echo "Menu script : ketik kata menu di putty" | tee -a log-install.txt
 echo "Timezone : Asia/Jakarta" | tee -a log-install.txt
 echo "Fail2Ban : [on]" | tee -a log-install.txt
 echo "IPv6     : [off]" | tee -a log-install.txt
 echo "documentation : http://satria.asia/docs/documentation.html" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
+echo "Tools"  | tee -a log-install.txt
+echo "-----"  | tee -a log-install.txt
+echo "axel"  | tee -a log-install.txt
+echo "bmon"  | tee -a log-install.txtdr
+echo "htop"  | tee -a log-install.txt
+echo "iftop"  | tee -a log-install.txt
+echo "mtr"  | tee -a log-install.txt
+echo "nethogs"  | tee -a log-install.txt
+echo "" | tee -a log-install.txt
+echo "Script"  | tee -a log-install.txt
+echo "------"  | tee -a log-install.txt
+echo "screenfetch"  | tee -a log-install.txt
+echo "script menu, berguna untuk menampilkan daftar script (menu)"  | tee -a log-install.txt
+echo "Tambah User SSH / OpenVPN (user-add)"  | tee -a log-install.txt
+echo "Tambah masa aktif SSH / OpenVPN (renew)"  | tee -a log-install.txt
+echo "Monitoring user SSH (user-login)"  | tee -a log-install.txt
+echo "sh dropmon [port] contoh: sh dropmon 443" | tee -a log-install.txt
+echo "Menampilkan list akun (user-list)"  | tee -a log-install.txt
+echo "Auto create trial akun (trial)"  | tee -a log-install.txt
+echo "Delete expire akun (gusur)"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
 echo "REBOOT VPS!" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "===============================================" | tee -a log-install.txt
