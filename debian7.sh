@@ -71,11 +71,11 @@ echo "screenfetch" >> .profile
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "http://satria.asia/repo/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/satriaajiputra/debian7os/master/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<pre>Setup by Satria AJi Putra | ArenaJayaTeknik.com | @Sat_22_99 | 57661D2D</pre>" > /home/vps/public_html/index.html
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
-wget -O /etc/nginx/conf.d/vps.conf "http://satria.asia/repo/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/satriaajiputra/debian7os/master/vps.conf"
 sed -i 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
 service php5-fpm restart
 service nginx restart
@@ -108,6 +108,7 @@ cd
 # setting port ssh
 sed -i '/Port 22/a Port 143' /etc/ssh/sshd_config
 sed -i 's/Port 22/Port  22/g' /etc/ssh/sshd_config
+sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 service ssh restart
 
 # install dropbear
@@ -126,11 +127,20 @@ tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
 mv vnstat_php_frontend-1.5.1 vnstat
 cd vnstat
+if [ $(ifconfig | cut -c 1-8 | sort | uniq -u | grep venet0 | grep -v venet0:) = "venet0" ];then
+sed -i 's/eth0/venet0/g' config.php
+sed -i "s/\$iface_list = array('venet0', 'sixxs');/\$iface_list = array('venet0');/g" config.php
+sed -i "s/\$language = 'nl';/\$language = 'en';/g" config.php
+sed -i 's/Internal/Internet/g' config.php
+sed -i '/SixXS IPv6/d' config.php
+cd
+else
 sed -i "s/\$iface_list = array('eth0', 'sixxs');/\$iface_list = array('eth0');/g" config.php
 sed -i "s/\$language = 'nl';/\$language = 'en';/g" config.php
 sed -i 's/Internal/Internet/g' config.php
 sed -i '/SixXS IPv6/d' config.php
 cd
+fi
 
 # install fail2ban
 apt-get -y install fail2ban;service fail2ban restart
@@ -171,6 +181,7 @@ curl http://satria.asia/repo/trial > /usr/bin/trial
 curl http://satria.asia/repo/minggat > /usr/bin/minggat
 curl http://satria.asia/repo/gusur > /usr/bin/gusur
 curl http://satria.asia/repo/menu > /usr/bin/menu
+wget -O /etc/issue.net "https://raw.githubusercontent.com/satriaajiputra/debian7os/master/banner"
 cd /usr/bin
 chmod +x user-add
 chmod +x user-list
@@ -245,3 +256,4 @@ echo ""  | tee -a log-install.txt
 echo "REBOOT VPS!" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "===============================================" | tee -a log-install.txt
+rm -f /root/debian7.sh
