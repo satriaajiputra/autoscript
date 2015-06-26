@@ -222,7 +222,7 @@ echo "-------" | tee -a log-install.txt
 echo "OpenSSH  : 22, 143" | tee -a log-install.txt
 echo "Dropbear : 109, 110, 443" | tee -a log-install.txt
 echo "Squid    : 8080, 3128" | tee -a log-install.txt
-echo "OpenVPN  : http://$IPSAYA:80/client.tar.gz" | tee -a log-install.txt
+echo "OpenVPN  : http://$IPSAYA:81/client.tar.gz" | tee -a log-install.txt
 echo "badvpn   : badvpn-udpgw port 7300" | tee -a log-install.txt
 echo "Webmin   : http://$IPSAYA:10000/" | tee -a log-install.txt
 echo "Menu script : ketik kata menu di putty" | tee -a log-install.txt
