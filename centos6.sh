@@ -211,25 +211,43 @@ else
 fi
 chmod +x /usr/bin/bmon
 
+# speedtest pak
+wget -O speedtest-cli https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py
+chmod +x speedtest-cli
+cd /usr/bin/
+curl http://satria.asia/script/speedtest.conf > /usr/bin/speed
+chmod +x speed
+cd
+
 # downlaod script
 cd
-wget -O speedtest_cli.py "https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py"
-wget -O bench-network.sh "https://raw.github.com/arieonline/autoscript/master/conf/bench-network.sh"
-wget -O ps_mem.py "https://raw.github.com/pixelb/ps_mem/master/ps_mem.py"
-wget -O limit.sh "https://raw.github.com/arieonline/autoscript/master/conf/limit.sh"
-curl http://script.jualssh.com/user-login.sh > user-login.sh
-curl http://script.jualssh.com/user-expire.sh > user-expire.sh
-curl http://script.jualssh.com/user-limit.sh > user-limit.sh
-echo "0 0 * * * root /root/user-expire.sh" > /etc/cron.d/user-expire
-sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.local
-sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.d/rc.local
-chmod +x bench-network.sh
-chmod +x speedtest_cli.py
-chmod +x ps_mem.py
-chmod +x user-login.sh
-chmod +x user-expire.sh
-chmod +x user-limit.sh
-chmod +x limit.sh
+curl http://satria.asia/repo/user-add > /usr/bin/user-add
+curl http://satria.asia/repo/user-list > /usr/bin/user-list
+curl http://satria.asia/repo/monitorport > /usr/bin/monitorport
+curl http://satria.asia/repo/dropmon > /usr/bin/dropmon
+curl https://raw.githubusercontent.com/satriaajiputra/autoscript/master/user-login.sh > /usr/bin/user-login
+curl http://satria.asia/repo/renew > /usr/bin/renew
+curl http://satria.asia/repo/trial > /usr/bin/trial
+curl http://satria.asia/repo/minggat > /usr/bin/minggat
+curl https://raw.githubusercontent.com/yurisshOS/centos6/master/userexpired.sh > /usr/bin/gusur
+curl http://satria.asia/repo/menu > /usr/bin/menu
+wget -O /etc/issue.net "https://raw.githubusercontent.com/satriaajiputra/debian7os/master/banner"
+cd /usr/bin
+chmod +x user-add
+chmod +x user-list
+chmod +x user-login
+chmod +x renew
+chmod +x trial
+chmod +x monitorport
+chmod +x dropmon
+chmod +x minggat
+chmod +x gusur
+chmod +x menu
+cd
+chmod +x dropmon
+echo "*/10 * * * * root /usr/bin/gusur" >> /etc/cron.d/userexpired
+echo "0 */6 * * * root /sbin/reboot" > /etc/cron.d/reboot
+service cron restart
 
 # cron
 service crond start
